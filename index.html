@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ═══ CHARACTER SET & VIEWPORT ═══ -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- ═══ PRIMARY SEO ═══ -->
+  <title>Agampreet Singh — Software Engineer · Backend Systems &amp; Platform Architecture</title>
+  <meta name="description" content="Agampreet Singh is a Software Engineer with 8+ years building scalable backend platforms. Currently Group SDE 2 &amp; Tech Lead at DP World — architecting AI-powered logistics products and the Quotations platform serving 150+ global locations.">
+  <meta name="keywords" content="Agampreet Singh, Software Engineer, Backend Engineer, Java, Spring Boot, DP World, BlackRock, Deutsche Telekom, Platform Architecture, Microservices, Gen AI, Tech Lead">
+  <meta name="author" content="Agampreet Singh">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://agampreetsingh.me/">
+
+  <!-- ═══ OPEN GRAPH (LinkedIn, Slack, WhatsApp previews) ═══ -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Agampreet Singh — Software Engineer · Backend &amp; Platform">
+  <meta property="og:description" content="8+ years. DP World · BlackRock · Deutsche Telekom · Nagarro. Currently building AI-powered logistics products and owning the Quotations platform serving 150+ global locations.">
+  <meta property="og:url" content="https://agampreetsingh.me/">
+  <meta property="og:site_name" content="Agampreet Singh">
+  <meta property="og:locale" content="en_GB">
+  <meta property="profile:first_name" content="Agampreet">
+  <meta property="profile:last_name" content="Singh">
+
+  <!-- ═══ TWITTER / X CARD ═══ -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Agampreet Singh — Software Engineer">
+  <meta name="twitter:description" content="8+ years. DP World · BlackRock · Deutsche Telekom. Backend systems, platform architecture, Gen AI.">
+  <meta name="twitter:creator" content="@agampreetsingh">
+
+  <!-- ═══ STRUCTURED DATA — Person + WebSite ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://agampreetsingh.me/#person",
+        "name": "Agampreet Singh",
+        "jobTitle": "Software Engineer — Tech Lead",
+        "description": "Software Engineer with 8+ years building scalable backend platforms and distributed systems. Currently Group SDE 2 at DP World, architecting AI-powered logistics products.",
+        "url": "https://agampreetsingh.me/",
+        "email": "agampreet_singh@yahoo.com",
+        "sameAs": [
+          "https://linkedin.com/in/agampreetsingh",
+          "https://github.com/agampreetsingh"
+        ],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Guru Nanak Dev University",
+          "sameAs": "https://www.gndu.ac.in/"
+        },
+        "knowsAbout": [
+          "Java", "Spring Boot", "Microservices", "PostgreSQL", "Redis",
+          "Apache Kafka", "Azure", "AWS", "Gen AI", "LLM Workflows",
+          "RAG", "Agentic Workflows", "Platform Architecture",
+          "Performance Optimization", "System Design"
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "DP World",
+          "sameAs": "https://www.dpworld.com/"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://agampreetsingh.me/#website",
+        "url": "https://agampreetsingh.me/",
+        "name": "Agampreet Singh — Portfolio",
+        "description": "Personal portfolio of Agampreet Singh, Software Engineer specialising in backend systems and platform architecture.",
+        "author": { "@id": "https://agampreetsingh.me/#person" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ═══ PERFORMANCE HINTS ═══ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+  <!-- ═══ FONTS ═══ -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,30..100,0..1;1,9..144,300..700,30..100,0..1&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- ═══ FAVICON PLACEHOLDERS (drop your files here) ═══ -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#fff6eb">
+
+  <!-- ═══ STYLESHEET ═══ -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ═══ GOOGLE ANALYTICS ═══ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTN7V9PC06"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FTN7V9PC06');
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<!-- ═══════ WELCOME MODAL ═══════ -->
+<div class="welcome-overlay" id="welcomeOverlay">
+  <div class="welcome-card" id="welcomeCard">
+    <div class="welcome-accent"></div>
+    <h2 class="welcome-name">Agampreet Singh</h2>
+    <p class="welcome-sub">Software Engineer · ~8 Years</p>
+    <p class="welcome-summary">Backend systems architect. Built a quotation platform serving 150+ global locations at DP World. Currently designing an AI co-pilot for logistics products.</p>
+    <div class="welcome-actions">
+      <button class="welcome-btn welcome-btn-primary" id="welcomeExplore" type="button">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m12 8 4 4-4 4M8 12h8"/></svg>
+        Explore the journey
+      </button>
+      <a class="welcome-btn welcome-btn-secondary" href="resume.pdf" download id="welcomeDownload">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download resume (PDF)
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Scroll progress bar -->
+<div class="scroll-progress" aria-hidden="true">
+  <div class="scroll-progress-fill"></div>
+</div>
+
+<!-- Persistent name watermark — appears after masthead scrolls out -->
+<div class="watermark" aria-hidden="true">
+  <span class="watermark-name">Agampreet Singh</span>
+  <span class="watermark-sep">·</span>
+  <span class="watermark-stage" data-stage-target>The Student</span>
+</div>
+
+<a class="pdf-fab" id="pdfFab" href="resume.pdf" download title="Download Resume PDF" aria-label="Download Resume PDF">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+  <span class="pdf-fab-label">PDF</span>
+</a>
+
+
+
+<!-- ═════════════════════ MOBILE HORIZONTAL TIMELINE RAIL ═════════════════════ -->
+<nav class="mob-rail" aria-label="Career progress">
+  <div class="mob-rail-track"><div class="mob-rail-fill"></div></div>
+  <button class="mob-stop" data-role="nagarro">
+    <span class="mob-dot"></span>
+    <span class="mob-label">Nagarro</span>
+  </button>
+  <button class="mob-stop" data-role="blackrock">
+    <span class="mob-dot"></span>
+    <span class="mob-label">BlackRock</span>
+  </button>
+  <button class="mob-stop" data-role="telekom">
+    <span class="mob-dot"></span>
+    <span class="mob-label">Telekom</span>
+  </button>
+  <button class="mob-stop is-current" data-role="dpworld">
+    <span class="mob-dot"></span>
+    <span class="mob-label">DP World</span>
+  </button>
+</nav>
+
+<div class="page">
+
+  <!-- ═════════════════════ MASTHEAD ═════════════════════ -->
+  <header class="masthead">
+    <div class="accent-mark"></div>
+    <div class="name-block">
+      <h1>Agampreet Singh</h1>
+      <span class="years-tag">~8 Years</span>
+    </div>
+    <p class="kicker">Software Engineer · Backend Systems &amp; Platform Architecture<br><span class="kicker-sub">Eight years of moving from <em>writing services</em> to <em>owning systems</em> to <em>shipping platforms.</em></span></p>
+    <div class="masthead-rule"></div>
+    <ul class="contact">
+      <li>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+        <a href="mailto:agampreet_singh@yahoo.com">agampreet_singh@yahoo.com</a>
+      </li>
+      <li>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:+919041716953">+91 9041716953</a>
+      </li>
+      <li>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <a href="https://linkedin.com/in/agampreetsingh" target="_blank" rel="noopener">linkedin.com/in/agampreetsingh</a>
+      </li>
+      <li>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        <a href="https://github.com/agampreetsingh" target="_blank" rel="noopener">github.com/agampreetsingh</a>
+      </li>
+    </ul>
+  </header>
+
+  <!-- ═════════════════════ CAREER COMPASS — the trajectory at a glance ═════════════════════ -->
+  <section class="compass" aria-label="Career trajectory overview">
+    <div class="compass-head">
+      <span class="compass-eyebrow">The journey</span>
+      <h2 class="compass-title">From <em>writing code</em> to <em>shipping platforms</em></h2>
+    </div>
+    <div class="compass-canvas" aria-hidden="true">
+      <svg class="compass-svg" viewBox="0 0 1000 240" preserveAspectRatio="xMidYMid meet">
+        <!-- The trajectory curve -->
+        <defs>
+          <linearGradient id="trajGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%"  stop-color="var(--ink-soft)" stop-opacity="0.4"/>
+            <stop offset="50%" stop-color="var(--accent)" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="var(--accent-warm)" stop-opacity="1"/>
+          </linearGradient>
+        </defs>
+        <!-- Baseline -->
+        <line x1="40" y1="180" x2="960" y2="180" stroke="var(--hairline-soft)" stroke-width="1" stroke-dasharray="3 4"/>
+        <!-- The trajectory path: gentle climb from lower-left to upper-right -->
+        <path id="trajectory"
+              d="M 40 180 C 200 175, 280 160, 340 140 S 480 100, 560 85 S 720 55, 820 38 S 940 20, 960 18"
+              fill="none"
+              stroke="url(#trajGrad)"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              pathLength="100"
+              class="compass-path"/>
+        <!-- Stage milestones -->
+        <g class="compass-stops">
+          <g class="compass-stop" data-stage="student" style="--stop-x:60px; --stop-y:178px;">
+            <circle cx="60" cy="178" r="5" class="compass-dot"/>
+            <text x="60" y="205" class="compass-label" text-anchor="middle">Student</text>
+            <text x="60" y="158" class="compass-year" text-anchor="middle">2018</text>
+          </g>
+          <g class="compass-stop" data-stage="junior" style="--stop-x:200px; --stop-y:158px;">
+            <circle cx="200" cy="158" r="5" class="compass-dot"/>
+            <text x="200" y="205" class="compass-label" text-anchor="middle">Junior</text>
+            <text x="200" y="138" class="compass-year" text-anchor="middle">Nagarro</text>
+          </g>
+          <g class="compass-stop" data-stage="perf" style="--stop-x:380px; --stop-y:120px;">
+            <circle cx="380" cy="120" r="5" class="compass-dot"/>
+            <text x="380" y="205" class="compass-label" text-anchor="middle">Performance Eng.</text>
+            <text x="380" y="100" class="compass-year" text-anchor="middle">BlackRock</text>
+          </g>
+          <g class="compass-stop" data-stage="owner" style="--stop-x:560px; --stop-y:85px;">
+            <circle cx="560" cy="85" r="5" class="compass-dot"/>
+            <text x="560" y="205" class="compass-label" text-anchor="middle">Service Owner</text>
+            <text x="560" y="65" class="compass-year" text-anchor="middle">DT</text>
+          </g>
+          <g class="compass-stop" data-stage="senior" style="--stop-x:740px; --stop-y:50px;">
+            <circle cx="740" cy="50" r="5" class="compass-dot"/>
+            <text x="740" y="205" class="compass-label" text-anchor="middle">Senior</text>
+            <text x="740" y="30" class="compass-year" text-anchor="middle">DPW · 2024</text>
+          </g>
+          <g class="compass-stop" data-stage="lead" style="--stop-x:935px; --stop-y:20px;">
+            <circle cx="935" cy="20" r="6.5" class="compass-dot compass-dot-current"/>
+            <text x="935" y="205" class="compass-label compass-label-current" text-anchor="middle">Tech Lead · Scout</text>
+            <text x="935" y="-4" class="compass-year compass-year-current" text-anchor="middle">Now</text>
+          </g>
+        </g>
+        <!-- Moving marker (current scroll position on the curve) -->
+        <circle r="8" class="compass-marker" cx="60" cy="178"/>
+      </svg>
+    </div>
+    <p class="compass-hint">↓ Scroll to read the chapters</p>
+    <!-- Mobile compass (replaces SVG on small screens) -->
+    <div class="compass-mobile" aria-hidden="true">
+      <div class="compass-mobile-stop is-reached" data-target="nagarro"><span class="compass-mobile-year">2018</span><span class="compass-mobile-label">The Junior</span></div>
+      <div class="compass-mobile-stop" data-target="blackrock"><span class="compass-mobile-year">2020</span><span class="compass-mobile-label">Performance Eng.</span></div>
+      <div class="compass-mobile-stop" data-target="telekom"><span class="compass-mobile-year">2020</span><span class="compass-mobile-label">Service Owner</span></div>
+      <div class="compass-mobile-stop" data-target="dpworld"><span class="compass-mobile-year">2022</span><span class="compass-mobile-label">Senior · Lead</span></div>
+      <div class="compass-mobile-stop is-current" data-target="dpworld"><span class="compass-mobile-year">Now</span><span class="compass-mobile-label">Tech Lead · Scout</span></div>
+    </div>
+  </section>
+
+  <main id="content" class="main">
+
+    <!-- ═════════════════════ TIMELINE + EXPERIENCE ═════════════════════ -->
+    <section class="journey" aria-label="Career timeline">
+
+      <!-- LEFT: the spine -->
+      <aside class="timeline" aria-hidden="true">
+        <div class="timeline-inner">
+
+          <!-- Collapsed college reveal -->
+          <button class="college-toggle" type="button" aria-expanded="false" aria-controls="college-segment">
+            <span class="college-toggle-arrow">↑</span>
+            <span class="college-toggle-label">2014 — 2018 · Before the career</span>
+          </button>
+
+          <!-- College segment (expandable) -->
+          <div class="timeline-segment college-segment" id="college-segment" hidden>
+            <div class="segment-line"></div>
+            <div class="segment-stations">
+              <div class="station" data-year="2014" data-station="college-start">
+                <span class="station-dot"></span>
+                <span class="station-year">2014</span>
+                <span class="station-label">B.Tech, GNDU</span>
+              </div>
+              <div class="station" data-year="2016" data-station="college-mid">
+                <span class="station-dot"></span>
+                <span class="station-year">2016</span>
+                <span class="station-label">Tech Head · CES</span>
+              </div>
+              <div class="station" data-year="2017" data-station="bootcamp">
+                <span class="station-dot"></span>
+                <span class="station-year">2017</span>
+                <span class="station-label">Nagarro Bootcamp</span>
+              </div>
+              <div class="station" data-year="2018-trainee" data-station="trainee">
+                <span class="station-dot"></span>
+                <span class="station-year">2018</span>
+                <span class="station-label">SDE Trainee</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Professional segment (always visible) -->
+          <div class="timeline-segment pro-segment">
+            <!-- The growing scope line -->
+            <div class="scope-line">
+              <div class="scope-line-fill"></div>
+            </div>
+
+            <div class="segment-stations">
+              <div class="station is-pro" data-year="2018" data-station="nagarro" data-scope="1">
+                <span class="station-dot"></span>
+                <span class="station-year">2018</span>
+                <span class="station-label">Nagarro</span>
+              </div>
+              <span class="station-bridge">↓ learned production</span>
+              <div class="station is-pro" data-year="2020" data-station="blackrock" data-scope="2">
+                <span class="station-dot"></span>
+                <span class="station-year">2020</span>
+                <span class="station-label">BlackRock</span>
+              </div>
+              <span class="station-bridge">↓ learned scale</span>
+              <div class="station is-pro" data-year="2020-dec" data-station="telekom" data-scope="3">
+                <span class="station-dot"></span>
+                <span class="station-year">2020</span>
+                <span class="station-label">Deutsche Telekom</span>
+              </div>
+              <span class="station-bridge">↓ learned ownership</span>
+              <div class="station is-pro" data-year="2022" data-station="dpworld" data-scope="5">
+                <span class="station-dot"></span>
+                <span class="station-year">2022</span>
+                <span class="station-label">DP World</span>
+              </div>
+              <span class="station-bridge">↓ leading now</span>
+              <div class="station is-pro is-current" data-year="2026" data-station="now" data-scope="5">
+                <span class="station-dot"></span>
+                <span class="station-year">Now</span>
+                <span class="station-label">Tech Lead · Scout</span>
+              </div>
+            </div>
+
+            <!-- Scope ticker that travels with scroll -->
+            <div class="scope-indicator">
+              <span class="scope-label">Scope</span>
+              <span class="scope-value">tickets</span>
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+      <!-- RIGHT: the content -->
+      <div class="content">
+
+        <!-- Mobile-only college toggle (desktop one is in the timeline aside) -->
+        <button class="college-toggle college-toggle-mobile" type="button" aria-expanded="false" aria-controls="college-content">
+          <span class="college-toggle-arrow">↑</span>
+          <span class="college-toggle-label">2014 — 2018 · Before the career</span>
+        </button>
+
+        <!-- College content (mirrors expanded timeline) -->
+        <div class="content-college" id="college-content" hidden>
+          <header class="role-head">
+            <span class="role-meta">2014 — 2018</span>
+            <h2>Before the career</h2>
+            <p class="role-sub">Guru Nanak Dev University · B.Tech, Computer Science &amp; Engineering</p>
+          </header>
+          <div class="role-body">
+            <p class="role-narrative">Four years of building things, teaching things, and running things. The pattern that became the career started here — show up early, ship something, teach someone else how to ship it too.</p>
+            <ul class="bullets">
+              <li><strong>Technical Head</strong>, Computer Engineering Students Society — taught flash classes on programming with the highest audience attendance of the 2016–17 session.</li>
+              <li>Conducted workshops on game and web development; arranged sessions with industry professionals.</li>
+              <li>Built <strong>AurumFest</strong> (2017) — the techno-cultural fest website for GNDU with an online contest and real-time updates on event day.</li>
+              <li>Founded and ran the university music club; organised technical and cultural events at Aurum'17.</li>
+              <li>Volunteer at <strong>BloodConnect</strong> NGO — handled blood-requirement requests and co-organised donation camps in Amritsar.</li>
+            </ul>
+            <div class="role-badges">
+              <span class="badge">Google Scholarship · Grow with Google India · 2018</span>
+              <span class="badge">Code Overnight 2016 · Winner</span>
+              <span class="badge">Geek Night 2016 · Winner</span>
+              <span class="badge">TCS GamOn 2016 · Top 3% Nationally</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nagarro -->
+        <article class="role-card" data-role="nagarro" data-stage="junior" data-stage-label="The Junior">
+          <div class="chapter-intro" aria-hidden="true">
+            <span class="chapter-num">Chapter 01</span>
+            <span class="chapter-divider"></span>
+            <span class="chapter-stage">The Junior</span>
+          </div>
+          <header class="role-head">
+            <span class="role-meta">Jun 2018 — Jan 2020 <span class="role-meta-tag">· 1y 8m</span></span>
+            <h2>Nagarro <span class="role-sep">/</span> <span class="role-position">Associate Engineer</span></h2>
+            <p class="role-sub">First time my code was the thing standing between a real client and a broken Friday morning.</p>
+          </header>
+          <div class="role-body">
+            <p class="role-narrative">Started as a trainee in early 2018. Six months later I was on the production rotation for a US compliance system and a German airline — two different codebases, two different time zones, two very different stakes. I learned what "the build is red" actually costs.</p>
+            <ul class="bullets">
+              <li>Delivered solutions for a US-based ITM compliance system: implemented new user types and scaled email throughput <span class="hl">200 → 1000 / day</span> via GCP.</li>
+              <li>Reverse-engineered a legacy application and revamped the system from scratch — shipping the replacement to production.</li>
+              <li>For a German airline client: upgraded the codebase to <strong>Swagger 2</strong>, designed inter-service communication, and built new lounge-voucher types adhering to airline standards.</li>
+            </ul>
+            <p class="role-takeaway"><span class="takeaway-label">What I took from it</span> Reading code you didn't write is its own skill. Production is a different planet than staging.</p>
+            <div class="role-stack">
+              <span class="stack-label">Stack</span>
+              <span class="chip">Java</span>
+              <span class="chip">Spring</span>
+              <span class="chip">Hibernate</span>
+              <span class="chip">REST</span>
+              <span class="chip">Angular</span>
+              <span class="chip">GCP</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- BlackRock -->
+        <article class="role-card" data-role="blackrock" data-stage="perf" data-stage-label="The Performance Engineer">
+          <div class="chapter-intro" aria-hidden="true">
+            <span class="chapter-num">Chapter 02</span>
+            <span class="chapter-divider"></span>
+            <span class="chapter-stage">The Performance Engineer</span>
+          </div>
+          <header class="role-head">
+            <span class="role-meta">Feb 2020 — Dec 2020 <span class="role-meta-tag">· 11 months</span></span>
+            <h2>BlackRock <span class="role-sep">/</span> <span class="role-position">Analyst — Software Engineer</span></h2>
+            <p class="role-sub">A short chapter, but the one where I learned that performance isn't a feature — it's the product.</p>
+          </header>
+          <div class="role-body">
+            <p class="role-narrative">Joined the Analytics platform team three weeks before the world shut down. Spent the year profiling, measuring, and shaving milliseconds off code paths that ran a million times a day. The serialisation win was the loud one. The quiet education was sitting next to senior engineers who could read a flame graph the way most people read a sentence.</p>
+            <ul class="bullets">
+              <li>Improved serialisation performance <span class="hl">10× faster</span> — 15s to 1.5s — on the firm's Analytics platform.</li>
+              <li>Contributed across the Analytics stack and gained hands-on experience resolving production incidents at scale.</li>
+            </ul>
+            <!-- Small visual moment — the 10× win, drawn -->
+            <div class="latency-viz" data-viz="blackrock-latency" aria-hidden="true">
+              <div class="latency-row">
+                <span class="latency-tag">Before</span>
+                <div class="latency-bar latency-bar-before"><span class="latency-bar-fill"></span></div>
+                <span class="latency-value">15.0s</span>
+              </div>
+              <div class="latency-row">
+                <span class="latency-tag">After</span>
+                <div class="latency-bar latency-bar-after"><span class="latency-bar-fill"></span></div>
+                <span class="latency-value">1.5s</span>
+              </div>
+            </div>
+            <p class="role-takeaway"><span class="takeaway-label">What I took from it</span> Measure first, guess never. The instinct that says "this loop runs too many times" is almost always wrong; the profiler is almost always right.</p>
+            <div class="role-stack">
+              <span class="stack-label">Stack</span>
+              <span class="chip">Scala</span>
+              <span class="chip">Spark</span>
+              <span class="chip">Java</span>
+              <span class="chip">Spring Boot</span>
+              <span class="chip">Cassandra</span>
+              <span class="chip">MySQL</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Deutsche Telekom -->
+        <article class="role-card" data-role="telekom" data-stage="owner" data-stage-label="The Service Owner">
+          <div class="chapter-intro" aria-hidden="true">
+            <span class="chapter-num">Chapter 03</span>
+            <span class="chapter-divider"></span>
+            <span class="chapter-stage">The Service Owner</span>
+          </div>
+          <header class="role-head">
+            <span class="role-meta">Dec 2020 — Jul 2022 <span class="role-meta-tag">· 1y 8m</span></span>
+            <h2>Deutsche Telekom <span class="role-sep">/</span> <span class="role-position">Software Development Engineer</span></h2>
+            <p class="role-sub">The year I stopped owning tickets and started owning services.</p>
+          </header>
+          <div class="role-body">
+            <p class="role-narrative">Five different problem spaces in eighteen months — auth, file pipelines, chatbots, screen rendering, infra. Each one started with "we need someone to figure this out" and ended with a service running in production. Somewhere in the middle of it, I noticed I'd stopped waiting to be told what to build next.</p>
+            <ul class="bullets">
+              <li>Designed and developed an <strong>authorization service</strong> using Keycloak and Java — centralising access-control flows, admin dashboards, and security controls across internal applications.</li>
+              <li>Built a <strong>dynamic media file resizing</strong> service using AWS Lambda + Python (Boto, MoviePy, PIL) for optimised image/video processing.</li>
+              <li>Backend for a <strong>rule-based chatbot</strong> using tree architecture in Java Spring Boot.</li>
+              <li>Backend APIs for a <strong>template-based dynamic screen creator</strong> for mobile apps — configurable screen rendering without repeated app-side changes.</li>
+              <li>Architected a reusable internal <strong>file-upload service</strong>; improved artifact management via Nexus jar-repository; improved Keycloak availability by externalising Infinispan cache.</li>
+            </ul>
+            <p class="role-takeaway"><span class="takeaway-label">What I took from it</span> Breadth compounds. Five services taught me five different sets of failure modes — and the patterns that show up in all of them.</p>
+            <div class="role-stack">
+              <span class="stack-label">Stack</span>
+              <span class="chip">Java</span>
+              <span class="chip">Spring Boot</span>
+              <span class="chip">Keycloak</span>
+              <span class="chip">AWS Lambda</span>
+              <span class="chip">Python</span>
+              <span class="chip">Nexus</span>
+              <span class="chip">Infinispan</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- DP World -->
+        <article class="role-card is-headline" data-role="dpworld" data-stage="lead" data-stage-label="The Tech Lead">
+          <div class="chapter-intro" aria-hidden="true">
+            <span class="chapter-num">Chapter 04</span>
+            <span class="chapter-divider"></span>
+            <span class="chapter-stage">Senior · Tech Lead</span>
+          </div>
+          <header class="role-head">
+            <span class="role-meta">Jul 2022 — Present <span class="role-meta-tag">· ~4 years</span></span>
+            <h2>DP World <span class="role-sep">/</span> <span class="role-position">Group SDE 2 — Tech Lead</span></h2>
+            <p class="role-sub">Owner of the <strong>Quotations platform</strong> — a cross-functional pillar of DP World's global freight-forwarding business across 150+ locations.</p>
+          </header>
+          <div class="role-body">
+
+            <p class="role-narrative">Joined as an IC. Stayed long enough to see a feature I designed become a platform, and the platform become the way the company onboards new business. Four years, five distinct phases of growth — each one teaching me something the last one couldn't.</p>
+
+            <!-- Headline metrics -->
+            <div class="metrics" data-viz="dpw-metrics">
+              <div class="metric">
+                <span class="metric-number" data-count-to="150" data-count-suffix="+">0</span>
+                <span class="metric-label">Locations served globally</span>
+              </div>
+              <div class="metric">
+                <span class="metric-number" data-count-to="25" data-count-suffix="×">0</span>
+                <span class="metric-label">Quote volume scaling since launch</span>
+              </div>
+              <div class="metric">
+                <span class="metric-number metric-text" data-text-to="15s → 2s">—</span>
+                <span class="metric-label">Quote creation latency, optimised</span>
+              </div>
+              <div class="metric">
+                <span class="metric-number metric-text" data-text-to="3 wks → 3 hrs">—</span>
+                <span class="metric-label">Tenant onboarding, after config-driven re-architecture</span>
+              </div>
+            </div>
+
+            <!-- ═════ Phased journey inside DP World ═════ -->
+            <div class="phases">
+              <h3 class="phases-head">The four-year arc</h3>
+
+              <div class="phase">
+                <span class="phase-date">Jul — Nov 2022</span>
+                <h4 class="phase-title">Logistics Platform &amp; Security</h4>
+                <p class="phase-body">First six months: shipped backend features on the Node.js logistics platform, resolved VAPT findings, and led the booking-page revamp. Earning the room before changing what was in it.</p>
+              </div>
+
+              <div class="phase">
+                <span class="phase-date">Feb — Jun 2023</span>
+                <h4 class="phase-title">Platform Standardisation</h4>
+                <p class="phase-body">Defined the shared Java templates and archetypes that every subsequent Java app at DP World would inherit from. Built the <strong>Notification Handler</strong> — now integrated by 8 internal apps. Led the migration to New Relic for centralised observability.</p>
+              </div>
+
+              <div class="phase is-pivotal">
+                <span class="phase-date">Jul — Dec 2023</span>
+                <h4 class="phase-title">Quotation Management System · P100</h4>
+                <p class="phase-body">The bet that paid off. Designed and built the Quotations module from scratch as part of DP World's strategic P100 programme. Went live <strong>October 2023</strong>. Stack: Spring Boot, PostgreSQL, Hibernate, Redis, Azure EventHub, New Relic.</p>
+              </div>
+
+              <div class="phase">
+                <span class="phase-date">Jan 2024 — Feb 2025</span>
+                <h4 class="phase-title">Owning Team Delivery</h4>
+                <p class="phase-body">Five engineers. Architecture, code quality, extensibility — mine to call. Cut quote creation latency from <span class="hl">15s → 2s</span>, held SonarQube coverage at ≥80% with Maintainability rating A through rapid feature delivery, and mentored junior engineers new to Java into shipping end-to-end independently. <strong>Champions Award</strong> for FY 2024–25.</p>
+              </div>
+
+              <div class="phase is-current">
+                <span class="phase-date">Mar 2025 — Present</span>
+                <h4 class="phase-title">Senior Developer · Owning Quotes</h4>
+                <p class="phase-body">Quotes is now a crucial business onboarding tool deployed across 150+ freight-forwarding locations. Decoupled CRM workflows to cut inter-service coupling. Re-architected Quotes to be <strong>config-driven</strong> — zero-code support for new tenants, countries, and branches. Designed Pricing Tool and Landside Operations solutions. Built a high-performance <strong>PDF generator</strong> from HTML templates that outperforms paid tools like Aspose.</p>
+              </div>
+            </div>
+
+            <!-- ═════ Scout — the current bet, visually separated ═════ -->
+            <div class="scout-card">
+              <div class="scout-tag">
+                <span class="scout-pulse"></span>
+                <span class="scout-tag-text">Currently building · Tech Talk · Apr 2026</span>
+              </div>
+              <h3 class="scout-title">Scout — an AI product co-pilot</h3>
+              <p class="scout-body">An AI-powered co-pilot for DP World logistics products. Combines LLM query resolution, contextual guided workflow tours, and PR-based release summaries — replacing manual onboarding walkthroughs and making product discovery self-serve.</p>
+              <p class="scout-body">Designing Scout's Gen AI application layer: prompt templates, structured tool calling, retrieval pipeline, response guardrails, and traceable request flows — to keep LLM features reliable, debuggable, and provider-agnostic.</p>
+            </div>
+
+            <p class="role-takeaway"><span class="takeaway-label">What I'm learning now</span> Owning a platform is different from owning a service. You spend less time writing code and more time deciding which code <em>not</em> to write — and which trade-offs are okay to defer.</p>
+
+            <!-- Live quote creation demo -->
+            <div class="quote-demo" data-viz="quote-demo">
+              <div class="quote-demo-head">
+                <span class="quote-demo-label">Live demo</span> Quote creation latency
+              </div>
+              <div class="quote-demo-tracks">
+                <div class="demo-track" data-track="slow">
+                  <span class="demo-track-label">Before</span>
+                  <div class="demo-track-bar"><div class="demo-track-progress is-slow"></div></div>
+                  <span class="demo-track-timer">0.0s</span>
+                </div>
+                <div class="demo-track" data-track="fast">
+                  <span class="demo-track-label">After</span>
+                  <div class="demo-track-bar"><div class="demo-track-progress"></div></div>
+                  <span class="demo-track-timer">0.0s</span>
+                </div>
+              </div>
+              <button class="quote-demo-btn" type="button">Create Quote →</button>
+            </div>
+
+            <div class="role-badges">
+              <span class="badge badge-award">Champions Award · DP World FY 2024–25</span>
+              <span class="badge">Annual Rating · 4 / 5</span>
+            </div>
+            <div class="role-stack">
+              <span class="stack-label">Stack</span>
+              <span class="chip is-primary">Java</span>
+              <span class="chip is-primary">Spring Boot</span>
+              <span class="chip is-primary">PostgreSQL</span>
+              <span class="chip">Redis</span>
+              <span class="chip">Hibernate</span>
+              <span class="chip">Azure EventHub</span>
+              <span class="chip">New Relic</span>
+              <span class="chip is-primary">LLM Workflows</span>
+              <span class="chip">RAG</span>
+              <span class="chip">Tool Calling</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ═══════ PROJECTS ═══════ -->
+    <section class="projects" aria-label="Side projects">
+      <div class="sec-head"><h3>Beyond the day job</h3><span class="sec-rule"></span></div>
+      <p class="projects-intro">Things I built because I wanted to, not because someone asked.</p>
+
+      <div class="proj-grid">
+        <div class="proj-card proj-card-feature">
+          <span class="proj-tag">2021 · The pandemic weekend build</span>
+          <h4><a href="https://bit.ly/easy-vaccination-slot-tracker" target="_blank" rel="noopener">VaccinationSlotTracker</a></h4>
+          <p>India's vaccination rollout was chaos. Built a PWA in a weekend to track open slots. 400+ strangers used it. Felt different from shipping at work.</p>
+          <div class="proj-stats"><span><strong>400+</strong> users</span><span><strong>~5K</strong> hits</span></div>
+        </div>
+        <div class="proj-card">
+          <span class="proj-tag">The "let me learn Angular" project</span>
+          <h4><a href="https://bit.ly/agam-pos" target="_blank" rel="noopener">Point of Sales</a></h4>
+          <p>A full-stack POS app — Spring Boot backend, Angular frontend. Built to teach myself a framework by shipping something real.</p>
+        </div>
+        <div class="proj-card">
+          <span class="proj-tag">The fest website that actually shipped</span>
+          <h4><a href="https://bit.ly/aurum-fest" target="_blank" rel="noopener">AurumFest 2017</a></h4>
+          <p>GNDU's techno-cultural fest site — online contest, real-time updates on event day. First project where strangers depended on my code.</p>
+        </div>
+        <div class="proj-card">
+          <span class="proj-tag">The NGO tool</span>
+          <h4><a href="https://bit.ly/redconnect-demo" target="_blank" rel="noopener">RedConnect Office Viewer</a></h4>
+          <p>A desktop CRM for BloodConnect — automated blood request management for volunteers. Built because spreadsheets weren't cutting it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════════════ SKILLS ═════════════════════ -->
+    <section class="skills" aria-label="Technical skills">
+      <div class="section-head">
+        <h3>Technical Skills</h3>
+        <span class="rule"></span>
+      </div>
+      <dl class="skill-groups">
+        <div class="skill-row">
+          <dt>Backend &amp; Core</dt>
+          <dd>
+            <span class="chip is-primary">Java</span>
+            <span class="chip is-primary">Spring Boot</span>
+            <span class="chip">Microservices</span>
+            <span class="chip">REST APIs</span>
+            <span class="chip">Hibernate</span>
+            <span class="chip">Maven</span>
+          </dd>
+        </div>
+        <div class="skill-row">
+          <dt>Data &amp; Caching</dt>
+          <dd>
+            <span class="chip is-primary">PostgreSQL</span>
+            <span class="chip">MySQL</span>
+            <span class="chip is-primary">Redis</span>
+            <span class="chip">Apache Kafka</span>
+            <span class="chip">Cassandra</span>
+          </dd>
+        </div>
+        <div class="skill-row">
+          <dt>Cloud &amp; DevOps</dt>
+          <dd>
+            <span class="chip is-primary">Azure EventHub</span>
+            <span class="chip">AWS Lambda</span>
+            <span class="chip">GCP</span>
+            <span class="chip">Keycloak</span>
+            <span class="chip is-primary">New Relic</span>
+            <span class="chip">Grafana</span>
+            <span class="chip">SonarQube</span>
+            <span class="chip">Nexus</span>
+          </dd>
+        </div>
+        <div class="skill-row">
+          <dt>Frontend &amp; Langs</dt>
+          <dd>
+            <span class="chip">Node.js</span>
+            <span class="chip">Express</span>
+            <span class="chip">Angular</span>
+            <span class="chip">Vue.js</span>
+            <span class="chip is-primary">Python</span>
+            <span class="chip">Scala</span>
+            <span class="chip">Spark</span>
+          </dd>
+        </div>
+        <div class="skill-row">
+          <dt>Gen AI &amp; Agents</dt>
+          <dd>
+            <span class="chip is-primary">LLM Workflows</span>
+            <span class="chip is-primary">Prompt Engineering</span>
+            <span class="chip is-primary">RAG</span>
+            <span class="chip">Tool Calling</span>
+            <span class="chip">Agentic Workflows</span>
+            <span class="chip">Guardrails</span>
+          </dd>
+        </div>
+        <div class="skill-row">
+          <dt>Strengths</dt>
+          <dd>
+            <span class="chip is-primary">System Design</span>
+            <span class="chip">Performance Optimization</span>
+            <span class="chip">Team Leadership</span>
+            <span class="chip">Mentoring</span>
+            <span class="chip">Code Quality</span>
+          </dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- ═════════════════════ STACK EVOLUTION ═════════════════════ -->
+    <section class="stack-evo" aria-label="Stack evolution">
+      <div class="stack-evo-head">
+        <h3>How the stack grew</h3>
+        <span class="rule"></span>
+      </div>
+      <div class="evo-rows" data-viz="stack-evo">
+        <div class="evo-row">
+          <span class="evo-label"><em>Nagarro</em> · 2018</span>
+          <div class="evo-bar-wrap"><div class="evo-bar evo-bar-nagarro" style="--target-w: 25%;"><span class="evo-bar-text">Java · Spring · Angular · GCP</span></div></div>
+        </div>
+        <div class="evo-row">
+          <span class="evo-label"><em>BlackRock</em> · 2020</span>
+          <div class="evo-bar-wrap"><div class="evo-bar evo-bar-blackrock" style="--target-w: 45%;"><span class="evo-bar-text">+ Scala · Spark · Cassandra · MySQL</span></div></div>
+        </div>
+        <div class="evo-row">
+          <span class="evo-label"><em>DT</em> · 2020</span>
+          <div class="evo-bar-wrap"><div class="evo-bar evo-bar-telekom" style="--target-w: 65%;"><span class="evo-bar-text">+ AWS Lambda · Python · Keycloak · Nexus</span></div></div>
+        </div>
+        <div class="evo-row">
+          <span class="evo-label"><em>DP World</em> · 2022</span>
+          <div class="evo-bar-wrap"><div class="evo-bar evo-bar-dpworld" style="--target-w: 100%;"><span class="evo-bar-text">+ PostgreSQL · Redis · Kafka · EventHub · NewRelic · LLMs · RAG</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════════════ CAREER STATS ═════════════════════ -->
+    <section class="career-stats" aria-label="Career summary" data-viz="career-stats">
+      <div class="career-stat"><span class="career-stat-num" data-count-to="8" data-count-suffix="+">0</span><span class="career-stat-label">Years in engineering</span></div>
+      <div class="career-stat"><span class="career-stat-num" data-count-to="4">0</span><span class="career-stat-label">Companies</span></div>
+      <div class="career-stat"><span class="career-stat-num" data-count-to="150" data-count-suffix="+">0</span><span class="career-stat-label">Global locations</span></div>
+      <div class="career-stat"><span class="career-stat-num" data-count-to="5">0</span><span class="career-stat-label">Engineers mentored</span></div>
+      <div class="career-stat"><span class="career-stat-num" data-count-to="8">0</span><span class="career-stat-label">Internal apps use my code</span></div>
+      <div class="career-stat"><span class="career-stat-num" data-count-to="0" data-count-suffix="">0</span><span class="career-stat-label career-stat-special">Frameworks on this page</span></div>
+    </section>
+
+    <!-- ═════════════════════ EDUCATION + FOCUS ═════════════════════ -->
+    <section class="closing">
+      <div class="closing-block">
+        <div class="section-head">
+          <h3>Education</h3>
+          <span class="rule"></span>
+        </div>
+        <p class="closing-content">
+          <span class="degree">B.Tech, Computer Science &amp; Engineering</span>
+          <span class="org">Guru Nanak Dev University</span>
+          <span class="dates">2014 — 2018</span>
+        </p>
+      </div>
+      <div class="closing-block">
+        <div class="section-head">
+          <h3>Engineering Focus</h3>
+          <span class="rule"></span>
+        </div>
+        <p class="closing-content closing-focus">
+          Backend Platforms · Distributed Systems · Gen AI Applications · Agentic Workflows · Performance Optimization · Observability
+        </p>
+      </div>
+    </section>
+
+    <!-- ═════════════════════ CONTACT ═════════════════════ -->
+    <footer class="footer">
+      <div class="footer-rule"></div>
+      <p class="footer-line">
+        <a href="mailto:agampreet_singh@yahoo.com">agampreet_singh@yahoo.com</a>
+        <span class="footer-sep">·</span>
+        <a href="https://linkedin.com/in/agampreetsingh" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="footer-sep">·</span>
+        <a href="https://github.com/agampreetsingh" target="_blank" rel="noopener">GitHub</a>
+      </p>
+      <p class="footer-meta">Built by hand. No frameworks. <span class="footer-sig">— A.S.</span></p>
+      <p class="footer-curious">Writing about LLM tool calling and agentic workflows in 2026. Always curious.</p>
+    </footer>
+
+  </main>
+</div>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>

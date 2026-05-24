@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Agampreet Singh — Resume</title>
+<meta name="description" content="Agampreet Singh — Software Engineer with ~8 years building scalable backend systems. Currently Group SDE 2 at DP World.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,30..100,0..1;1,9..144,300..700,30..100,0..1&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ════════════════════════════════════════════════════════════════════════════
+     PALETTE — EDIT THESE 4 COLORS TO RETHEME THE ENTIRE RESUME
+
+     Everything below derives from these 4 anchors via color-mix().
+     Change one color → the entire visual world shifts coherently.
+
+     See PALETTES.md for:
+       · Visual explanation of what each variable touches
+       · 13 ready-to-paste preset palettes (Navy+Amber, Midnight, Sage, ...)
+       · Tips for designing your own palette
+       · Common mistakes to avoid
+
+     Browser support: requires color-mix() — Chrome 111+, Firefox 113+, Safari 16.2+.
+     All modern browsers and the chromium that renders the PDF support it.
+     ════════════════════════════════════════════════════════════════════════════ */
+  :root {
+    --paper:      #fff6eb;   /* Page background. Sets the dominant mood. */
+    --ink:        #2E2A24;   /* Primary text · name · bold · structure. Must contrast strongly with --paper. */
+    --accent:     #8A6A35;   /* Dates · italic role titles · contact icons · highlight chips · primary skill chips. */
+    --ink-soft:   #6C6254;   /* Secondary text: italic kicker, role context, contact lines. Usually a desaturated --ink. */
+
+    /* ─── Derived tones (auto-computed; usually no need to edit) ─────────────
+       If you ever want a manual override, just replace the color-mix() call
+       with a hex/rgba value. The names tell you what's affected:
+         --paper-soft     subtle alternate background (not heavily used today)
+         --accent-soft    background of date chips, .hl highlights, primary skill chips
+         --hairline       horizontal rules under masthead, between sections, role dividers
+         --hairline-soft  subtle dividers between sub-rows (skills, roles)
+         --chip-bg        background of secondary skill chips (the non-primary ones)
+     ──────────────────────────────────────────────────────────────────────── */
+    --paper-soft:    color-mix(in srgb, var(--paper) 92%, var(--ink));
+    --accent-soft:   color-mix(in srgb, var(--accent) 14%, transparent);
+    --hairline:      color-mix(in srgb, var(--ink) 28%, transparent);
+    --hairline-soft: color-mix(in srgb, var(--ink) 13%, transparent);
+    --chip-bg:       color-mix(in srgb, var(--ink) 8%, transparent);
+
+    /* ─── Typography (rarely changed) ──────────────────────────────────────── */
+    --serif: 'Fraunces', 'Georgia', 'Liberation Serif', 'Times New Roman', serif;
+    --sans:  'Inter Tight', 'Helvetica Neue', 'Liberation Sans', 'Arial', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  @page { size: A4; margin: 0; }
+
+  html {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 8.75pt;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv11", "calt", "kern";
+    text-rendering: optimizeLegibility;
+  }
+
+  .resume-page {
+    background: var(--paper);
+    min-height: 297mm;
+  }
+
+  /* =========================================================
+     MASTHEAD — editorial typographic, no dark band
+     ========================================================= */
+  .masthead {
+    padding: 4mm 13mm 2.5mm;
+    background: var(--paper);
+  }
+
+  /* The single decorative accent — a small mark above the name */
+  .accent-mark {
+    width: 14mm;
+    height: 1.2pt;
+    background: var(--accent);
+    margin-bottom: 2.5mm;
+  }
+
+  .name-block {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6mm;
+    margin-bottom: 1.2mm;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 28pt;
+    line-height: 0.95;
+    letter-spacing: -0.018em;
+    color: var(--ink);
+    font-variation-settings: "opsz" 144, "SOFT" 50, "wght" 500;
+  }
+
+  .years-tag {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 7.2pt;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .kicker {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 11pt;
+    color: var(--ink-soft);
+    font-variation-settings: "opsz" 36, "SOFT" 50;
+    letter-spacing: 0.003em;
+    line-height: 1.3;
+    margin-bottom: 2.2mm;
+  }
+
+  /* Strong rule under the masthead — the editorial divider */
+  .masthead-rule {
+    height: 0.6pt;
+    background: var(--ink);
+    margin-bottom: 2.2mm;
+  }
+
+  .contact {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2mm 5mm;
+    font-size: 8pt;
+    color: var(--ink-soft);
+  }
+  .contact li {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .contact .icon {
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+    color: var(--accent);
+  }
+  .contact a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* =========================================================
+     SECTION HEADERS — small tracked uppercase + hairline
+     ========================================================= */
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 2mm 0;
+  }
+  .section-head h2 {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 7.3pt;
+    color: var(--ink);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .section-head .rule {
+    flex: 1;
+    height: 0.5px;
+    background: var(--hairline);
+  }
+
+  /* =========================================================
+     EXPERIENCE
+     ========================================================= */
+  .experience {
+    padding: 1.6mm 13mm 0;
+  }
+
+  .role {
+    padding: 1mm 0 0.7mm;
+  }
+  .role:not(:last-child) {
+    border-bottom: 0.5px solid var(--hairline-soft);
+  }
+
+  .chapter {
+    margin-bottom: 0.8mm;
+  }
+
+  /* Date chip — subtle, designed, not loud */
+  .chapter-dates {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 6.8pt;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    background: var(--accent-soft);
+    border-radius: 2.5px;
+    white-space: nowrap;
+  }
+
+  .role h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 12pt;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+    line-height: 1.15;
+    margin-bottom: 0.3mm;
+    font-variation-settings: "opsz" 36, "SOFT" 30, "wght" 600;
+  }
+  .role-sep {
+    color: var(--hairline);
+    font-weight: 300;
+    margin: 0 5px;
+    font-size: 9.5pt;
+    font-style: normal;
+  }
+  .role-position {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 10pt;
+    color: var(--accent);
+    font-variation-settings: "opsz" 36;
+    letter-spacing: 0.002em;
+  }
+
+  .role-context {
+    font-family: var(--sans);
+    font-size: 8.4pt;
+    color: var(--ink-soft);
+    margin: 0.5mm 0 0.9mm;
+    line-height: 1.35;
+    font-style: italic;
+  }
+
+  .bullets {
+    list-style: disc;
+    padding-left: 3.5mm;
+    font-size: 8.5pt;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+  .bullets li {
+    margin-bottom: 0.1mm;
+    padding-left: 0.3mm;
+  }
+  .bullets li::marker {
+    color: var(--accent);
+    font-size: 0.55em;
+  }
+
+  /* Highlights — subtle accent-tinted background chip for inline metrics. */
+  .hl {
+    background: var(--accent-soft);
+    padding: 0 3px;
+    border-radius: 2px;
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--ink);
+  }
+
+  strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* =========================================================
+     TECHNICAL SKILLS — editorial grid, chipped
+     ========================================================= */
+  .stack-band {
+    padding: 1mm 13mm 0;
+  }
+
+  .skill-groups { margin-top: 0; }
+
+  .skill-row {
+    display: grid;
+    grid-template-columns: 35mm 1fr;
+    gap: 4mm;
+    padding: 0.4mm 0;
+    align-items: baseline;
+    border-bottom: 0.5px solid var(--hairline-soft);
+  }
+  .skill-row:last-child { border-bottom: none; }
+
+  .skill-row dt {
+    font-family: var(--sans);
+    font-size: 7pt;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .skill-row dt .cat-icon {
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
+    color: var(--accent);
+  }
+  .skill-row dd {
+    font-family: var(--sans);
+    font-size: 8.2pt;
+    color: var(--ink);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5px 2px;
+    align-items: center;
+  }
+  .chip {
+    display: inline-block;
+    background: var(--chip-bg);
+    color: var(--ink);
+    padding: 1px 5px;
+    border-radius: 2.5px;
+    font-size: 8.2pt;
+    line-height: 1.35;
+    white-space: nowrap;
+  }
+  .chip.is-primary {
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .chip-sep {
+    color: var(--hairline);
+    font-size: 6.5pt;
+    line-height: 1;
+    align-self: center;
+    font-weight: 400;
+    user-select: none;
+  }
+
+  /* =========================================================
+     CLOSING — Education + Engineering Focus, paired
+     (still a single-column resume; this is just a sub-pairing)
+     ========================================================= */
+  .closing {
+    padding: 0.8mm 13mm 2mm;
+    display: grid;
+    grid-template-columns: 0.85fr 1fr;
+    gap: 9mm;
+  }
+
+  .section-block .section-head { margin-bottom: 1.3mm; }
+
+  .section-content {
+    font-family: var(--sans);
+    font-size: 8.5pt;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .section-content .degree {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 10pt;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 0.5mm;
+    font-variation-settings: "opsz" 36;
+  }
+  .section-content .org { color: var(--ink-soft); }
+  .section-content .dates {
+    color: var(--accent);
+    font-size: 7.3pt;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+  }
+  .section-content .sep {
+    color: var(--hairline);
+    margin: 0 4px;
+  }
+
+  /* Screen preview only — not for print */
+  @media screen {
+    body {
+      background: #C9C1B0;
+      padding: 24px 0;
+    }
+    .resume-page {
+      max-width: 210mm;
+      margin: 0 auto;
+      background: var(--paper);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 14px 36px rgba(40,30,20,0.18);
+    }
+  }
+  @media print {
+    .resume-page { max-width: none; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="resume-page">
+
+  <!-- ================ MASTHEAD ================ -->
+  <header class="masthead">
+    <div class="accent-mark"></div>
+    <div class="name-block">
+      <h1>Agampreet Singh</h1>
+      <span class="years-tag">— 8 Years</span>
+    </div>
+    <p class="kicker">Software Engineer · Backend Systems &amp; Platform Architecture</p>
+    <div class="masthead-rule"></div>
+    <ul class="contact">
+      <li>
+        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>
+        </svg>
+        <a href="mailto:agampreet_singh@yahoo.com">agampreet_singh@yahoo.com</a>
+      </li>
+<li>
+  <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/>
+  </svg>
+  <a href="tel:+919041716953">+91 9041716953</a>
+</li>
+      <li>
+        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
+        </svg>
+        <a href="https://linkedin.com/in/agampreetsingh">linkedin.com/in/agampreetsingh</a>
+      </li>
+      <li>
+        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.4 3.6 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.4-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2A11.5 11.5 0 0 1 12 5.8c1 0 2 .1 3 .4 2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.2.9 2.4v3.6c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/>
+        </svg>
+        <a href="https://github.com/agampreetsingh">github.com/agampreetsingh</a>
+      </li>
+      <li>
+        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>
+        </svg>
+        <a href="https://agampreetsingh.me">agampreetsingh.me</a>
+      </li>
+    </ul>
+  </header>
+
+  <!-- ================ EXPERIENCE ================ -->
+  <section class="experience">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <span class="rule"></span>
+    </div>
+
+    <div class="roles">
+
+      <!-- DP World -->
+      <article class="role is-current">
+        <div class="chapter">
+          <span class="chapter-dates">Jul 2022 — Present</span>
+        </div>
+        <h3>DP World <span class="role-sep">/</span> <span class="role-position">Group SDE 2 — Tech Lead</span></h3>
+        <p class="role-context">Owner of the Quotations platform — a cross-functional pillar of DP World's global freight-forwarding business across <span class="hl">150+ locations</span>.</p>
+        <ul class="bullets">
+            <li>Architecting <strong>Scout</strong>, an <span class="hl">AI-powered</span> product co-pilot for DP World logistics products — combining <span class="hl">LLM-powered</span> query resolution, contextual guided workflow tours, and pull-request based release summaries to replace manual onboarding walkthroughs and make product discovery self-serve.</li>
+          <li>Designed Scout's <span class="hl">Gen AI application layer</span> — prompt templates, structured tool calling, retrieval pipeline, response guardrails, and traceable request flows — to keep LLM-powered features reliable, debuggable, and provider-agnostic.</li>
+          <li>Built the <strong>Quotations module from scratch</strong> as part of DP World's <span class="hl">P100 programme</span> — live since Oct 2023; adoption scaled from <span class="hl">~20 to ~500 quotes/week (25×)</span>. Stack: Spring Boot · PostgreSQL · Hibernate · Redis · Azure EventHub · New Relic.</li>
+          <li>Re-architected Quotes to be <strong>config-driven</strong> — zero-code support for new tenants, countries, and branches; decoupled CRM workflows to cut inter-service coupling — reducing tenant onboarding time from 3 Weeks to 3 hours</li>
+          <li>Reduced Quote creation latency <span class="hl">15s → 2s</span> through targeted performance optimisation across the request path.</li>
+          <li>Built a <strong>high-performance PDF generator</strong> from HTML templates — outperforms paid tools like Aspose; adopted across multiple DP World products.</li>
+          <li>Tech-lead for the Quotations platform — set architecture direction, review bar, and delivery cadence for a team of <strong>5+ engineers</strong>; partnered with Product, Pricing, and Operations to land platform decisions across DPW divisions.</li>
+          <li>Improved engineering quality, observability, and security posture — maintained <strong>SonarQube coverage ≥ 80%</strong> with <strong>Maintainability rating A</strong>, led <strong>New Relic</strong> migration for centralised observability, resolved VAPT findings, and standardised Java application templates including the <strong>Notification Handler</strong> now integrated by 8 internal apps.</li>
+          <li>Recognised with the <strong>Champions Award</strong> (FY 2024–25) for delivery impact across the platform.</li>
+        </ul>
+      </article>
+
+      <!-- Deutsche Telekom -->
+      <article class="role">
+        <div class="chapter">
+          <span class="chapter-dates">Dec 2020 — Jul 2022</span>
+        </div>
+        <h3>Deutsche Telekom <span class="role-sep">/</span> <span class="role-position">Software Development Engineer</span></h3>
+        <ul class="bullets">
+          <li>Designed and developed an <strong>authorization service</strong> using Keycloak and Java, centralising access-control flows, admin dashboards, and security controls across internal applications.</li>
+          <li>Built a dynamic <strong>media file resizing</strong> service using AWS Lambda + Python (Boto, MoviePy, PIL), enabling optimised image/video processing.</li>
+          <li>Developed backend for a <strong>rule-based chatbot</strong> using tree architecture in Java Spring Boot.</li>
+          <li>Designed backend APIs for a <strong>template-based dynamic screen creator</strong> for mobile apps, enabling configurable screen rendering without repeated app-side changes.</li>
+          <li>Architected a reusable internal file-upload service; improved artifact management via <strong>Nexus</strong> jar-repository; improved Keycloak availability by externalising Infinispan cache.</li>
+        </ul>
+      </article>
+
+      <!-- BlackRock -->
+      <article class="role">
+        <div class="chapter">
+          <span class="chapter-dates">Feb 2020 — Dec 2020</span>
+        </div>
+        <h3>BlackRock <span class="role-sep">/</span> <span class="role-position">Analyst — Software Engineer</span></h3>
+        <ul class="bullets">
+          <li>Improved serialisation performance <span class="hl">10× faster</span> (15s → 1.5s) on the firm's Analytics platform.</li>
+          <li>Contributed across the Analytics stack — Scala, Spark, Java, Spring Boot, Cassandra, MySQL — and gained hands-on experience resolving production incidents at scale.</li>
+        </ul>
+      </article>
+
+      <!-- Nagarro -->
+      <article class="role">
+        <div class="chapter">
+          <span class="chapter-dates">Jun 2018 — Jan 2020</span>
+        </div>
+        <h3>Nagarro <span class="role-sep">/</span> <span class="role-position">Associate Engineer</span></h3>
+        <ul class="bullets">
+          <li>Delivered solutions for a US-based ITM compliance system: implemented new user types and scaled email throughput <span class="hl">200 → 1000 / day</span> via GCP.</li>
+          <li>Reverse engineered a legacy application and revamped the system from scratch, shipping the replacement into production.</li>
+          <li>For a German airline client: upgraded codebase to <strong>Swagger 2</strong>, designed inter-service communication, and built new lounge-voucher types.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================ STACK & TOOLS ================ -->
+  <section class="stack-band">
+    <div class="section-head">
+      <h2>Technical Skills</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-row">
+        <dt>
+          <svg class="cat-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="18" height="6" rx="1"/><circle cx="7" cy="7" r="0.5" fill="currentColor"/><circle cx="7" cy="17" r="0.5" fill="currentColor"/>
+          </svg>
+          <span>Backend &amp; Core</span>
+        </dt>
+        <dd>
+          <span class="chip is-primary">Java</span>
+          <span class="chip-sep">·</span>
+          <span class="chip is-primary">Spring Boot</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Microservices</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">REST APIs</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Hibernate</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Maven</span>
+        </dd>
+      </div>
+      <div class="skill-row">
+        <dt>
+          <svg class="cat-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6"/>
+          </svg>
+          <span>Data &amp; Caching</span>
+        </dt>
+        <dd>
+          <span class="chip is-primary">PostgreSQL</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">MySQL</span>
+          <span class="chip-sep">·</span>
+          <span class="chip is-primary">Redis</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Apache Kafka</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Cassandra</span>
+        </dd>
+      </div>
+      <div class="skill-row">
+        <dt>
+          <svg class="cat-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17.5 19a4.5 4.5 0 1 0-1.5-8.74A6 6 0 1 0 6.5 17 a4 4 0 0 0 1 2h10z"/>
+          </svg>
+          <span>Cloud &amp; DevOps</span>
+        </dt>
+        <dd>
+          <span class="chip is-primary">Azure EventHub</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">AWS Lambda</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">GCP</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Keycloak</span>
+          <span class="chip-sep">·</span>
+          <span class="chip is-primary">New Relic</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Grafana</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">SonarQube</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Nexus</span>
+        </dd>
+      </div>
+      <div class="skill-row">
+        <dt>
+          <svg class="cat-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+          </svg>
+          <span>Frontend &amp; Langs</span>
+        </dt>
+        <dd>
+          <span class="chip">Node.js</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Express</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Angular</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Vue.js</span>
+          <span class="chip-sep">·</span>
+          <span class="chip is-primary">Python</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Scala</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Spark</span>
+        </dd>
+      </div>
+      <div class="skill-row">
+        <dt>
+          <svg class="cat-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
+          </svg>
+          <span>Gen AI &amp; Agents</span>
+        </dt>
+        <dd>
+          <span class="chip is-primary">LLM Workflows</span>
+          <span class="chip-sep">·</span>
+          <span class="chip is-primary">Prompt Engineering</span>
+          <span class="chip-sep">·</span>
+          <span class="chip is-primary">RAG</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Tool Calling</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Agentic Workflows</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Guardrails</span>
+        </dd>
+      </div>
+      <div class="skill-row">
+        <dt>
+          <svg class="cat-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+          <span>Strengths</span>
+        </dt>
+        <dd>
+          <span class="chip is-primary">System Design</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Performance Optimization</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Team Leadership</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Mentoring</span>
+          <span class="chip-sep">·</span>
+          <span class="chip">Code Quality</span>
+        </dd>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================ CLOSING ================ -->
+  <section class="closing">
+    <div class="section-block">
+      <div class="section-head">
+        <h2>Education</h2>
+        <span class="rule"></span>
+      </div>
+      <div class="section-content">
+        <span class="degree">B.Tech, Computer Science &amp; Engineering</span>
+        <span class="org">Guru Nanak Dev University</span>
+        <span class="sep">·</span>
+        <span class="dates">2014 — 2018</span>
+      </div>
+    </div>
+    <div class="section-block">
+      <div class="section-head">
+        <h2>Engineering Focus</h2>
+        <span class="rule"></span>
+      </div>
+      <div class="section-content">
+        Backend Platforms <span class="sep">·</span> Distributed Systems <span class="sep">·</span> Gen AI Applications <span class="sep">·</span> Agentic Workflows <span class="sep">·</span> Performance Optimization <span class="sep">·</span> Observability
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

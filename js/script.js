@@ -36,10 +36,10 @@
   if (welcomeOverlay) {
     document.body.style.overflow = 'hidden';
     if (welcomeExplore)  welcomeExplore.addEventListener('click', () => { gaEvent('welcome_explore'); dismissWelcome(); });
-    if (welcomeDownload) welcomeDownload.addEventListener('click', () => { gaEvent('resume_download', { source: 'modal' }); setTimeout(dismissWelcome, 200); });
+    if (welcomeDownload) welcomeDownload.addEventListener('click', () => { gaEvent('resume_download', { event_category: 'recruiter_engagement', event_label: 'resume_pdf', source: 'modal' }); setTimeout(dismissWelcome, 200); });
   }
 
-  if (pdfFab) pdfFab.addEventListener('click', () => gaEvent('resume_download', { source: 'fab' }));
+  if (pdfFab) pdfFab.addEventListener('click', () => gaEvent('resume_download', { event_category: 'recruiter_engagement', event_label: 'resume_pdf', source: 'fab' }));
 
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -654,15 +654,15 @@
   // 16. CONTACT LINK CLICKS — email, phone, LinkedIn, GitHub
   // ────────────────────────────────────────────────────────────────────────
   const contactTypeMap = [
-    { selector: 'a[href^="mailto:"]',   type: 'email'    },
-    { selector: 'a[href^="tel:"]',      type: 'phone'    },
-    { selector: 'a[href*="linkedin"]',  type: 'linkedin' },
-    { selector: 'a[href*="github"]',    type: 'github'   },
+    { selector: 'a[href^="mailto:"]',  eventName: 'email_click'    },
+    { selector: 'a[href^="tel:"]',     eventName: 'phone_click'    },
+    { selector: 'a[href*="linkedin"]', eventName: 'linkedin_click' },
+    { selector: 'a[href*="github"]',   eventName: 'github_click'   },
   ];
 
-  contactTypeMap.forEach(({ selector, type }) => {
+  contactTypeMap.forEach(({ selector, eventName }) => {
     document.querySelectorAll(selector).forEach(link => {
-      link.addEventListener('click', () => gaEvent('contact_click', { type }));
+      link.addEventListener('click', () => gaEvent(eventName, { event_category: 'recruiter_engagement' }));
     });
   });
 

@@ -11,6 +11,12 @@
   // ────────────────────────────────────────────────────────────────────────
   // GA HELPER — safe wrapper so missing gtag never throws
   // ────────────────────────────────────────────────────────────────────────
+  const _pageLoadTime = Date.now();
+
+  function timeOnPage() {
+    return Math.round((Date.now() - _pageLoadTime) / 1000); // seconds since page load
+  }
+
   function gaEvent(name, params) {
     if (typeof gtag === 'function') gtag('event', name, params || {});
   }
@@ -35,11 +41,11 @@
 
   if (welcomeOverlay) {
     document.body.style.overflow = 'hidden';
-    if (welcomeExplore)  welcomeExplore.addEventListener('click', () => { gaEvent('welcome_explore'); dismissWelcome(); });
-    if (welcomeDownload) welcomeDownload.addEventListener('click', () => { gaEvent('resume_download', { event_category: 'recruiter_engagement', event_label: 'resume_pdf', source: 'modal' }); setTimeout(dismissWelcome, 200); });
+    if (welcomeExplore)  welcomeExplore.addEventListener('click', () => { gaEvent('welcome_explore', { time_on_page: timeOnPage() }); dismissWelcome(); });
+    if (welcomeDownload) welcomeDownload.addEventListener('click', () => { gaEvent('resume_download', { event_category: 'recruiter_engagement', event_label: 'resume_pdf', source: 'modal', time_on_page: timeOnPage() }); setTimeout(dismissWelcome, 200); });
   }
 
-  if (pdfFab) pdfFab.addEventListener('click', () => gaEvent('resume_download', { event_category: 'recruiter_engagement', event_label: 'resume_pdf', source: 'fab' }));
+  if (pdfFab) pdfFab.addEventListener('click', () => gaEvent('resume_download', { event_category: 'recruiter_engagement', event_label: 'resume_pdf', source: 'fab', time_on_page: timeOnPage() }));
 
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -662,7 +668,7 @@
 
   contactTypeMap.forEach(({ selector, eventName }) => {
     document.querySelectorAll(selector).forEach(link => {
-      link.addEventListener('click', () => gaEvent(eventName, { event_category: 'recruiter_engagement' }));
+      link.addEventListener('click', () => gaEvent(eventName, { event_category: 'recruiter_engagement', time_on_page: timeOnPage() }));
     });
   });
 

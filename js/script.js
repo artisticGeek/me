@@ -17,8 +17,21 @@
     return Math.round((Date.now() - _pageLoadTime) / 1000); // seconds since page load
   }
 
+  // Persistent visitor ID — survives across sessions for the same browser
+  function getVisitorId() {
+    let id = localStorage.getItem('_agam_vid');
+    if (!id) {
+      id = 'v_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now().toString(36);
+      localStorage.setItem('_agam_vid', id);
+    }
+    return id;
+  }
+  const _visitorId = getVisitorId();
+
   function gaEvent(name, params) {
-    if (typeof gtag === 'function') gtag('event', name, params || {});
+    if (typeof gtag === 'function') {
+      gtag('event', name, Object.assign({ visitor_id: _visitorId }, params || {}));
+    }
   }
 
   // ────────────────────────────────────────────────────────────────────────

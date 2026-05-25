@@ -9,6 +9,13 @@
   document.body.classList.add('js');
 
   // ────────────────────────────────────────────────────────────────────────
+  // GA HELPER — safe wrapper so missing gtag never throws
+  // ────────────────────────────────────────────────────────────────────────
+  function gaEvent(name, params) {
+    if (typeof gtag === 'function') gtag('event', name, params || {});
+  }
+
+  // ────────────────────────────────────────────────────────────────────────
   // 0. WELCOME MODAL
   // ────────────────────────────────────────────────────────────────────────
   const welcomeOverlay = document.getElementById('welcomeOverlay');
@@ -28,9 +35,11 @@
 
   if (welcomeOverlay) {
     document.body.style.overflow = 'hidden';
-    if (welcomeExplore)  welcomeExplore.addEventListener('click', dismissWelcome);
-    if (welcomeDownload) welcomeDownload.addEventListener('click', () => setTimeout(dismissWelcome, 200));
+    if (welcomeExplore)  welcomeExplore.addEventListener('click', () => { gaEvent('welcome_explore'); dismissWelcome(); });
+    if (welcomeDownload) welcomeDownload.addEventListener('click', () => { gaEvent('resume_download', { source: 'modal' }); setTimeout(dismissWelcome, 200); });
   }
+
+  if (pdfFab) pdfFab.addEventListener('click', () => gaEvent('resume_download', { source: 'fab' }));
 
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -46,6 +55,7 @@
     collegeToggle.addEventListener('click', () => {
       const isOpen = collegeToggle.getAttribute('aria-expanded') === 'true';
       const next = !isOpen;
+      gaEvent('college_expand', { action: next ? 'expand' : 'collapse' });
       collegeToggle.setAttribute('aria-expanded', String(next));
       if (next) {
         collegeSegment.hidden = false;
@@ -328,6 +338,7 @@
     for (const e of entries) {
       if (e.isIntersecting) {
         e.target.classList.add('is-revealed');
+        gaEvent('chapter_view', { chapter: e.target.dataset.role || 'unknown' });
         cardIO.unobserve(e.target);
       }
     }
@@ -502,6 +513,7 @@
     }
 
     btn.addEventListener('click', function() {
+      gaEvent('quote_demo_play');
       resetDemo();
       requestAnimationFrame(function() { requestAnimationFrame(runDemo); });
     });
@@ -523,6 +535,7 @@
     stop.addEventListener('click', function() {
       const stage = stop.dataset.stage;
       const role = stageToRole[stage];
+      gaEvent('compass_navigate', { destination: stage });
       if (role) {
         const target = document.querySelector('[data-role="' + role + '"]');
         if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -615,5 +628,51 @@
     }
   };
 
+
+  // ────────────────────────────────────────────────────────────────────────
+  // 15. SCROLL DEPTH — fire at 25 / 50 / 75 / 100 %
+  // ────────────────────────────────────────────────────────────────────────
+  const depthMilestones = [25, 50, 75, 100];
+  const firedDepths = new Set();
+
+  function checkScrollDepth() {
+    const doc = document.documentElement;
+    const total = doc.scrollHeight - window.innerHeight;
+    if (total <= 0) return;
+    const pct = Math.round((window.scrollY / total) * 100);
+    for (const milestone of depthMilestones) {
+      if (pct >= milestone && !firedDepths.has(milestone)) {
+        firedDepths.add(milestone);
+        gaEvent('scroll_depth', { depth: milestone });
+      }
+    }
+  }
+
+  window.addEventListener('scroll', checkScrollDepth, { passive: true });
+
+  // ────────────────────────────────────────────────────────────────────────
+  // 16. CONTACT LINK CLICKS — email, phone, LinkedIn, GitHub
+  // ────────────────────────────────────────────────────────────────────────
+  const contactTypeMap = [
+    { selector: 'a[href^="mailto:"]',   type: 'email'    },
+    { selector: 'a[href^="tel:"]',      type: 'phone'    },
+    { selector: 'a[href*="linkedin"]',  type: 'linkedin' },
+    { selector: 'a[href*="github"]',    type: 'github'   },
+  ];
+
+  contactTypeMap.forEach(({ selector, type }) => {
+    document.querySelectorAll(selector).forEach(link => {
+      link.addEventListener('click', () => gaEvent('contact_click', { type }));
+    });
+  });
+
+  // ────────────────────────────────────────────────────────────────────────
+  // 17. PROJECT LINK CLICKS
+  // ────────────────────────────────────────────────────────────────────────
+  document.querySelectorAll('.proj-card a').forEach(link => {
+    link.addEventListener('click', () => {
+      gaEvent('project_click', { project: link.textContent.trim() });
+    });
+  });
 
 })();
